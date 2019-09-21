@@ -1,0 +1,9 @@
+#Coordinates for the blackmarket merchant to spawn
+location:
+  world: 'world'
+  x: 160
+  y: 64
+  z: 169
+  #160 64 169
+#Broadcast message for when the merchant spawns
+broadcast-message: 'A BlackMarket merchant has appeared!'

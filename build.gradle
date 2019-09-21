@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'com.yerti.blackmarket'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
+jar.destinationDir = file("C:\\Users\\chess\\Desktop\\Spigot 1.8\\plugins")
+
+dependencies {
+    compile files("./src/main/resources/Shopkeepers-2.2.1.jar")
+
+    compileOnly "org.bukkit:craftbukkit:1.8.8-R0.1-SNAPSHOT"
+
+
+}
+
+compileJava.options.encoding = "UTF-8"
