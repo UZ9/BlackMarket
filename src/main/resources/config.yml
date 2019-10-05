@@ -7,3 +7,6 @@ location:
   #160 64 169
 #Broadcast message for when the merchant spawns
 broadcast-message: 'A BlackMarket merchant has appeared!'
+
+#Prefix
+prefix: '&8[&7BlackMarket&8]'

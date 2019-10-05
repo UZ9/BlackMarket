@@ -1,18 +1,18 @@
 package com.yerti.blackmarket.command;
 
 import com.nisovin.shopkeepers.api.ShopkeepersAPI;
-import com.nisovin.shopkeepers.api.shopkeeper.*;
+import com.nisovin.shopkeepers.api.shopkeeper.DefaultShopTypes;
+import com.nisovin.shopkeepers.api.shopkeeper.ShopCreationData;
+import com.nisovin.shopkeepers.api.shopkeeper.ShopType;
+import com.nisovin.shopkeepers.api.shopkeeper.Shopkeeper;
 import com.nisovin.shopkeepers.api.shopobjects.DefaultShopObjectTypes;
 import com.nisovin.shopkeepers.api.shopobjects.ShopObjectType;
 import com.nisovin.shopkeepers.shopkeeper.admin.AdminShopkeeper;
-import com.nisovin.shopkeepers.shopkeeper.player.AbstractPlayerShopkeeper;
-import com.nisovin.shopkeepers.shopkeeper.player.trade.TradingPlayerShopkeeper;
 import com.yerti.blackmarket.core.commands.CustomCommand;
 import com.yerti.blackmarket.menu.BlackMarketMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -42,11 +42,11 @@ public class BlackMarketCommand extends CustomCommand {
         Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, () -> {
 
             if (blackMarketMerchant == null) {
-                boolean spawnMarket = new Random().nextInt(1) == 0;
+                boolean spawnMarket = new Random().nextInt(1440) == 0;
 
                 if (spawnMarket) {
                     spawnMerchant(blackMarketLocation);
-                    Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "BLACK MARKET" + ChatColor.DARK_GRAY +  " \u00BB " + ChatColor.GRAY + plugin.getConfig().getString("broadcast-message"));
+                    Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("prefix")) + " " + ChatColor.GRAY + ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("broadcast-message")));
                 }
             } else {
                 if (time == 1) {
