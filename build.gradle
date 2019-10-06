@@ -15,7 +15,7 @@ repositories {
     }
 }
 
-jar.destinationDir = file("C:\\Users\\chess\\Desktop\\Spigot 1.8\\plugins")
+//jar.destinationDir = file("C:\\Users\\chess\\Desktop\\Spigot 1.8\\plugins")
 
 dependencies {
     compile files("./src/main/resources/Shopkeepers-2.2.1.jar")

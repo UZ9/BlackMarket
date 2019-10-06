@@ -24,8 +24,9 @@ import java.util.Random;
 
 public class BlackMarketCommand extends CustomCommand {
 
-    Shopkeeper blackMarketMerchant;
-    Location blackMarketLocation;
+    private Plugin plugin;
+    private Shopkeeper blackMarketMerchant;
+    private Location blackMarketLocation;
 
     int time = 0;
 
@@ -36,6 +37,7 @@ public class BlackMarketCommand extends CustomCommand {
 
     public BlackMarketCommand(Plugin plugin) {
         super("blackmarket", "blackmarket.admin");
+        this.plugin = plugin;
 
         blackMarketLocation = new Location(Bukkit.getWorld(plugin.getConfig().getString("location.world")), plugin.getConfig().getDouble("location.x"), plugin.getConfig().getDouble("location.y"), plugin.getConfig().getDouble("location.z"));
 
@@ -74,6 +76,10 @@ public class BlackMarketCommand extends CustomCommand {
             if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("forcespawn")) {
                     spawnMerchant(((Player) sender).getLocation());
+                    Bukkit.getScheduler().runTaskLater(plugin, () -> {
+                        if (blackMarketMerchant == null) return;
+                        blackMarketMerchant.delete();
+                    }, 20L * 60L);
 
 
                 }
